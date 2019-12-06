@@ -1,24 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Layout from './Layout/Layout';
+import { Route, Switch } from 'react-router-dom';
+import Stylemodule from './pages/module/stylemoudule';
+import Dinamis from './pages/dinamis/dinamis';
+import Inline from './pages/inline/inline';
+import Classes from './pages/classes/classes';
 
 function App() {
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Layout>
+           <Switch>
+              <Route path="/module" component={Stylemodule} />
+              <Route path="/dinamis" component={Dinamis} />
+              <Route path="/inline" component={Inline}/>
+              <Route path="/classes" component={Classes}/>
+              <Route path="/" component={Stylemodule}/>
+           </Switch>
+        </Layout>
     </div>
   );
 }
